@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  astromailer:
+    build: .
+    container_name: astromailer
+    volumes:
+      - .:/app  # 映射当前目录到容器中的 /
+    environment:
+      - TZ=Asia/Shanghai
+    # restart: unless-stopped
+    command: python src/main.py
+    network_mode: "host"

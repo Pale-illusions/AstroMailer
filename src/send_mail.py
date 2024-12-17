@@ -46,6 +46,10 @@ def send_email(config):
         # 调用词霸 API 获取每日金句
         note_ch, note_en = get_ciba()
 
+        # 预先生成随机颜色
+        note_en_color = get_color()
+        note_ch_color = get_color()
+
         # 构建邮件内容
         msg = MIMEMultipart()
         msg["From"] = config["email"]["name"]
@@ -118,6 +122,14 @@ def send_email(config):
                             font-size: 0.9rem;
                             color: #777;
                             margin-top: 30px;
+                        }}
+
+                        .note_en{{
+                            color: {note_en_color};
+                        }}
+
+                        .note_ch{{
+                            color: {note_ch_color};
                         }}
                     </style>
                 </head>
