@@ -1,0 +1,32 @@
+# email:
+#   sender: "your_email@example.com"
+#   password: "your_email_password"
+#   smtp_server: "smtp.163.com"
+#   smtp_port: 25
+#   recipients:
+#     - "recipient1@example.com"
+#     - "recipient2@example.com"
+#     - "recipient3@example.com"
+
+# nasa:
+#   api_key: "your_nasa_api_key"
+
+
+# morning_message: "Good morning! Here's your daily dose of inspiration."
+
+email:
+  sender: "13758276343@163.com"
+  password: "ELQHEKGOLNTHQRAH"
+  smtp_server: "smtp.163.com"
+  smtp_port: 25
+  recipients:
+    - "2307984361@qq.com"
+
+api_key:
+  nasa: "INQ7SVh21V25uwPMcwZFdaMQZZuH9ui1Ygu8g8hy"
+  baidu_translate:
+    appid: "20240325002004707"
+    secret_key: "2BmvJwwhP0e_CbzGe7dM"
+
+
+morning_message: "Good morning! Here's your daily dose of inspiration."
