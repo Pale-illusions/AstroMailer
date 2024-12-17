@@ -1,4 +1,5 @@
 # email:
+#   name: "your_name"
 #   sender: "your_email@example.com"
 #   password: "your_email_password"
 #   smtp_server: "smtp.163.com"
@@ -11,10 +12,8 @@
 # nasa:
 #   api_key: "your_nasa_api_key"
 
-
-# morning_message: "Good morning! Here's your daily dose of inspiration."
-
 email:
+  name: "苍镜月"
   sender: "13758276343@163.com"
   password: "ELQHEKGOLNTHQRAH"
   smtp_server: "smtp.163.com"
@@ -27,6 +26,3 @@ api_key:
   baidu_translate:
     appid: "20240325002004707"
     secret_key: "2BmvJwwhP0e_CbzGe7dM"
-
-
-morning_message: "Good morning! Here's your daily dose of inspiration."
