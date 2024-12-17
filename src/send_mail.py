@@ -43,29 +43,89 @@ def send_email(config):
 
         # 构建邮件内容
         msg = MIMEMultipart()
-        msg["From"] = config["email"]["sender"]
+        msg["From"] = "苍镜月"
         msg["To"] = ", ".join(config["email"]["recipients"])
-        msg["Subject"] = "🌅 NASA Astronomy Picture of the Day"
+        msg["Subject"] = "🌅 你有一份来自 NASA 的浪漫早安，请查收~"
 
         # 添加早安文案和图片描述
         body = f"""
-        {config['morning_message']}
-        <br><br>
-        <b>NASA Astronomy Picture of the Day:</b><br>
-        <b>Title:</b> {apod_data["title"]}<br>
-        <b>{note_en}<br>
-        <b>{note_ch}<br>
-        <b>Description (English):</b> {apod_data["explanation"]}<br>
-        <b>Description (中文):</b> {translated_description}<br>
+            <html>
+                <head>
+                    <style>
+                        body {{
+                            font-family: Arial, sans-serif;
+                            line-height: 1.6;
+                            margin: 0;
+                            padding: 20px;
+                            background-color: #f4f4f9;
+                            color: #333;
+                        }}
+                        h1 {{
+                            color: #2e6c80;
+                        }}
+                        p {{
+                            margin: 10px 0;
+                        }}
+                        .container {{
+                            background: #fff;
+                            border-radius: 8px;
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                            padding: 20px;
+                            margin: 20px auto;
+                            max-width: 700px;
+                        }}
+                        .image-container {{
+                            text-align: center;
+                            margin-top: 20px;
+                        }}
+                        .image-container img {{
+                            max-width: 100%;
+                            border-radius: 8px;
+                            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+                        }}
+                        .note {{
+                            font-style: italic;
+                            color: #555;
+                            margin-top: 10px;
+                        }}
+                        .highlight {{
+                            font-weight: bold;
+                            color: #1f5f8b;
+                        }}
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>{config['morning_message']}</h1>
+                        <p class="highlight">🌌 NASA Astronomy Picture of the Day:</p>
+                        <p><b>Title:</b> {apod_data["title"]}</p>
+                        
+                        <div class="note">
+                            <p>{note_en}</p>
+                            <p>{note_ch}</p>
+                        </div>
+                        
+                        <p><b>Description (English):</b></p>
+                        <p>{apod_data["explanation"]}</p>
+                        
+                        <p><b>Description (中文):</b></p>
+                        <p>{translated_description}</p>
+
+                        <div class="image-container">
+                            <img src="{apod_data['url']}" alt="NASA Astronomy Picture of the Day">
+                        </div>
+                    </div>
+                </body>
+            </html>
         """
         msg.attach(MIMEText(body, "html"))
 
         # 添加图片
-        if "url" in apod_data and apod_data["url"].endswith((".jpg", ".png")):
-            response = requests.get(apod_data["url"])
-            img = MIMEImage(response.content)
-            img.add_header("Content-Disposition", "attachment", filename="apod.jpg")
-            msg.attach(img)
+        # if "url" in apod_data and apod_data["url"].endswith((".jpg", ".png")):
+        #     response = requests.get(apod_data["url"])
+        #     img = MIMEImage(response.content)
+        #     img.add_header("Content-Disposition", "attachment", filename="apod.jpg")
+        #     msg.attach(img)
 
         # 添加缓存，有效期 12 小时
         cache.set(cache_key, msg, expire=12 * 60 * 60)
