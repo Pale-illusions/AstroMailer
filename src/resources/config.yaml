@@ -11,18 +11,6 @@
 
 # nasa:
 #   api_key: "your_nasa_api_key"
-
-email:
-  name: "苍镜月"
-  sender: "13758276343@163.com"
-  password: "ELQHEKGOLNTHQRAH"
-  smtp_server: "smtp.163.com"
-  smtp_port: 25
-  recipients:
-    - "2307984361@qq.com"
-
-api_key:
-  nasa: "INQ7SVh21V25uwPMcwZFdaMQZZuH9ui1Ygu8g8hy"
-  baidu_translate:
-    appid: "20240325002004707"
-    secret_key: "2BmvJwwhP0e_CbzGe7dM"
+#   baidu_translate:
+#     appid: "appid"
+#     secret_key: "secret_key"
