@@ -1,16 +1,16 @@
-# email:
-#   name: "your_name"
-#   sender: "your_email@example.com"
-#   password: "your_email_password"
-#   smtp_server: "smtp.163.com"
-#   smtp_port: 25
-#   recipients:
-#     - "recipient1@example.com"
-#     - "recipient2@example.com"
-#     - "recipient3@example.com"
+email:
+  name: "your_name"
+  sender: "your_email@example.com"
+  password: "your_email_password"
+  smtp_server: "smtp.163.com"
+  smtp_port: 25
+  recipients:
+    - "recipient1@example.com"
+    - "recipient2@example.com"
+    - "recipient3@example.com"
 
-# nasa:
-#   api_key: "your_nasa_api_key"
-#   baidu_translate:
-#     appid: "appid"
-#     secret_key: "secret_key"
+nasa:
+  api_key: "your_nasa_api_key"
+  baidu_translate:
+    appid: "appid"
+    secret_key: "secret_key"
